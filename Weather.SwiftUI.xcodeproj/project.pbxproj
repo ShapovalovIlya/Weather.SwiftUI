@@ -12,6 +12,10 @@
 		868BD9A628D6399F000E8590 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868BD9A528D6399F000E8590 /* Assets.xcassets */; };
 		868BD9A928D6399F000E8590 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 868BD9A828D6399F000E8590 /* Preview Assets.xcassets */; };
 		868BD9B728D63D5C000E8590 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 868BD9B628D63D5B000E8590 /* README.md */; };
+		868BD9B928D63DED000E8590 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868BD9B828D63DED000E8590 /* Color+Extension.swift */; };
+		868BD9BB28D645AD000E8590 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868BD9BA28D645AD000E8590 /* HomeView.swift */; };
+		868BD9BD28D64EAB000E8590 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868BD9BC28D64EAB000E8590 /* TabBar.swift */; };
+		868BD9BF28D65312000E8590 /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868BD9BE28D65312000E8590 /* Shapes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		868BD9A528D6399F000E8590 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		868BD9A828D6399F000E8590 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		868BD9B628D63D5B000E8590 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		868BD9B828D63DED000E8590 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		868BD9BA28D645AD000E8590 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		868BD9BC28D64EAB000E8590 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		868BD9BE28D65312000E8590 /* Shapes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				868BD9A328D6399C000E8590 /* ContentView.swift */,
+				868BD9BA28D645AD000E8590 /* HomeView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -94,6 +103,7 @@
 		868BD9B128D63B00000E8590 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				868BD9BC28D64EAB000E8590 /* TabBar.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -108,6 +118,8 @@
 		868BD9B328D63B26000E8590 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				868BD9B828D63DED000E8590 /* Color+Extension.swift */,
+				868BD9BE28D65312000E8590 /* Shapes.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -198,7 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				868BD9A428D6399C000E8590 /* ContentView.swift in Sources */,
+				868BD9BB28D645AD000E8590 /* HomeView.swift in Sources */,
+				868BD9B928D63DED000E8590 /* Color+Extension.swift in Sources */,
 				868BD9A228D6399C000E8590 /* Weather_SwiftUIApp.swift in Sources */,
+				868BD9BD28D64EAB000E8590 /* TabBar.swift in Sources */,
+				868BD9BF28D65312000E8590 /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
