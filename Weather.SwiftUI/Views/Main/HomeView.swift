@@ -16,53 +16,67 @@ enum BottomSheetPosition: CGFloat, CaseIterable {
 struct HomeView: View {
     
     @State var bottomSheetPosition: BottomSheetPosition = .middle
+    @State var bottomSheetTranslation: CGFloat = BottomSheetPosition.middle.rawValue
+    
+    var bottomSheetTranslationProrated: CGFloat {
+        (bottomSheetTranslation - BottomSheetPosition.middle.rawValue) / (BottomSheetPosition.top.rawValue - BottomSheetPosition.middle.rawValue)
+    }
     
     var body: some View {
         NavigationView {
-            ZStack {
-                //MARK: - Background color
-                Color.background
-                    .ignoresSafeArea()
-                
-                //MARK: - Background image
-                Image("Background")
-                    .ignoresSafeArea()
-                
-                //MARK: - House image
-                Image("House")
-                    .frame(maxWidth: .infinity, alignment: .top)
-                    .padding(.top, 257)
-                
-                VStack(spacing: -10) {
-                    Text("Saint-P")
-                        .font(.largeTitle)
+            GeometryReader { geometry in
+                let screenHight = geometry.size.height + geometry.safeAreaInsets.top + geometry.safeAreaInsets.bottom
+                let imageOffset = screenHight + 36
+                ZStack {
+                    //MARK: - Background color
+                    Color.background
+                        .ignoresSafeArea()
                     
-                    VStack {
-                        Text(attributedString)
+                    //MARK: - Background image
+                    Image("Background")
+                        .resizable()
+                        .ignoresSafeArea()
+                        .offset(y: -bottomSheetTranslationProrated * imageOffset)
+        
+                    //MARK: - House image
+                    Image("House")
+                        .frame(maxWidth: .infinity, alignment: .top)
+                        .padding(.top, 257)
+                        .offset(y: -bottomSheetTranslationProrated * imageOffset)
+                    
+                    VStack(spacing: -10) {
+                        Text("Saint-P")
+                            .font(.largeTitle)
                         
-                        Text("H:24° L:18°")
-                            .font(.title3.weight(.semibold))
+                        VStack {
+                            Text(attributedString)
+                            
+                            Text("H:24° L:18°")
+                                .font(.title3.weight(.semibold))
+                        } // end of VStack
+                        
+                        Spacer()
                     } // end of VStack
+                    .padding(.top, 51)
                     
-                    Spacer()
-                } // end of VStack
-                .padding(.top, 51)
-                
-                //MARK: - Bottom Sheet
-                BottomSheetView(position: $bottomSheetPosition) {
-                    Text(bottomSheetPosition.rawValue.formatted())
-                } content: {
-                    ForecastView()
-                }
-
-                
-                //MARK: - Tab bar
-                TabBar(action: {
-                    bottomSheetPosition = .top
-                })
-            } // end of ZStack
+                    //MARK: - Bottom Sheet
+                    BottomSheetView(position: $bottomSheetPosition) {
+                        Text(bottomSheetTranslationProrated.formatted())
+                    } content: {
+                        ForecastView()
+                    }
+                    .onBottomSheetDrag { translation in
+                        bottomSheetTranslation = translation / screenHight
+                    }
+                    
+                    //MARK: - Tab bar
+                    TabBar(action: {
+                        bottomSheetPosition = .top
+                    })
+                } // end of ZStack
+            } // end of GeometryReader
+            .navigationBarHidden(true)
         } // end of NavigationView
-        .toolbar(.hidden)
     } // end of body
     
     private var attributedString: AttributedString {
